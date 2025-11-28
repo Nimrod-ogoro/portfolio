@@ -31,7 +31,8 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="w-full min-h-screen bg-sky-950 flex flex-col md:flex-row ">
+        <div className="w-full min-h-screen bg-sky-950 flex flex-col md:flex-row">
+
             {/* Glowing Cursor Effect */}
             <div
                 className="fixed w-20 h-20 opacity-30 blur-3xl bg-sky-300 rounded-full pointer-events-none transition-transform duration-100"
@@ -43,167 +44,231 @@ export default function Home() {
             ></div>
 
             {/* Left Section */}
-            <div className="w-full md:w-1/2 md:fixed flex flex-col px-6 py-10 text-white  top-0 left-10 overflow-hidden">
+            <div className="w-full md:w-1/2 md:fixed flex flex-col px-6 py-10 text-white top-0 left-10 overflow-hidden">
                 <div className="container w-full flex flex-col gap-4 mt-6">
-                    <h1 className="text-3xl md:text-xl font-bold self-start tracking-tight w-full leading-none">Nimrod Omanga .O</h1>
-                    <h2 className="text-lg md:text-medium self-start font-medium tracking-tighter w-full leading-none">Full Stack Web Developer / AI & ML Engineer</h2>
-                    <p className="text-sm md:text-base self-start w-full leading-normal">I am a proficient Full-Stack Web Developer specializing <br/>in building dynamic and scalable web applications.</p>
-                    
+
+                    {/* Profile Image */}
+                    <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-sky-400">
+                        <img
+                            src="/your-image.jpg"
+                            alt="Nimrod Omanga"
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
+
+                    {/* Profile Info */}
+                    <h1 className="text-3xl md:text-xl font-bold tracking-tight leading-none">
+                        Nimrod Omanga .O
+                    </h1>
+                    <h2 className="text-lg md:text-medium font-medium tracking-tighter leading-none">
+                        Full Stack Web Developer / AI & ML Engineer
+                    </h2>
+                    <p className="text-sm md:text-base leading-normal text-gray-300">
+                        I am a proficient Full-Stack Web Developer specializing in building
+                        dynamic, scalable, and intelligent web applications. With deep skills
+                        in frontend, backend, blockchain, and AI engineering, I create
+                        cutting-edge digital solutions.
+                    </p>
+
                     {/* Navigation Menu */}
-                    <nav className="flex flex-col space-y-4 mt-15 hidden md:flex">
+                    <nav className="flex flex-col space-y-4 mt-10 hidden md:flex">
                         {sections.map((item) => (
                             <a
                                 key={item}
                                 href={`#${item}`}
                                 className={`flex items-center space-x-3 group transition-all duration-300 ${
-                                    activeSection === item ? "text-white font-semibold" : "text-gray-400"
+                                    activeSection === item
+                                        ? "text-white font-semibold"
+                                        : "text-gray-400"
                                 }`}
                             >
                                 <span
-                                    className={`h-0.5 transition-all duration-300 ease-in-out ${
-                                        activeSection === item ? "w-20 bg-white" : "w-8 bg-gray-500 group-hover:w-20 group-hover:bg-white"
+                                    className={`h-0.5 transition-all duration-300 ${
+                                        activeSection === item
+                                            ? "w-20 bg-white"
+                                            : "w-8 bg-gray-500 group-hover:w-20 group-hover:bg-white"
                                     }`}
                                 ></span>
                                 <span className="capitalize">{item}</span>
                             </a>
                         ))}
                     </nav>
-                    
+
                     {/* Social Icons */}
-                    <div className=" md:flex space-x-4 mt-16 md:text-3xl flex-row flex text-2xl ">
-                        <a href="https://github.com/Nimrod-ogoro" target="_blank" rel="noopener noreferrer">
-                            <FaGithub className="text-gray-400 hover:text-white transition-transform transform hover:scale-110" />
+                    <div className="flex space-x-4 mt-16 text-2xl md:text-3xl">
+                        <a href="https://github.com/Nimrod-ogoro" target="_blank">
+                            <FaGithub className="text-gray-400 hover:text-white hover:scale-110 transition-transform" />
                         </a>
-                        <a href="https://www.linkedin.com/in/nimrod-ogoro-b538a2311/" target="_blank" rel="noopener noreferrer">
-                            <FaLinkedin className="text-gray-400 hover:text-white transition-transform transform hover:scale-110" />
+                        <a href="https://www.linkedin.com/in/nimrod-ogoro-b538a2311/" target="_blank">
+                            <FaLinkedin className="text-gray-400 hover:text-white hover:scale-110 transition-transform" />
                         </a>
-                        <a href="https://www.upwork.com/freelancers/~019645d57bac9274b4?referrer_url_path=%2Fnx%2Fsearch%2Ftalent%2Fdetails%2F~019645d57bac9274b4%2Fprofile" target="_blank" rel="noopener noreferrer">
-                            <FaSquareUpwork className="text-gray-400 hover:text-white transition-transform transform hover:scale-110" />
+                        <a href="https://www.upwork.com/freelancers/~019645d57bac9274b4" target="_blank">
+                            <FaSquareUpwork className="text-gray-400 hover:text-white hover:scale-110 transition-transform" />
                         </a>
-                        <a href="https://wa.me/+254796643331" target="_blank" rel="noopener noreferrer">
-                            <FaWhatsapp className="text-gray-400 hover:text-white transition-transform transform hover:scale-110" />
+                        <a href="https://wa.me/+254796643331" target="_blank">
+                            <FaWhatsapp className="text-gray-400 hover:text-white hover:scale-110 transition-transform" />
                         </a>
                     </div>
                 </div>
             </div>
 
             {/* Right Section */}
-            <div className="w-full md:w-1/2 md:ml-auto p-6 md:p-10 space-y-16 md:space-y-20 min-h-screen overflow-y-auto flex flex-col">
+            <div className="w-full md:w-1/2 md:ml-auto p-6 md:p-10 space-y-20 min-h-screen overflow-y-auto flex flex-col">
+
                 {sections.map((section) => (
                     <section id={section} key={section} className="min-h-screen flex flex-col">
+
+                        {/* Section Title */}
                         <h2 className="text-2xl md:text-3xl font-bold capitalize">{section}</h2>
+
+                        {/* ABOUT SECTION */}
                         {section === "about" && (
                             <div>
-                                <p className="mt-4 text-gray-300">I am a passionate and skilled full-stack web developer with expertise in both frontend and backend technologies. I specialize in crafting dynamic and responsive user interfaces using HTML, CSS, Bootstrap, Tailwind, JavaScript, and jQuery. On the backend, I work with Python, Node.js, Express, and APIs, leveraging databases like SQL, PostgreSQL, and MongoDB to build scalable and efficient applications.
-
-Beyond traditional web development, I have experience in blockchain technology, developing DeFi applications, crypto tokens, and NFT marketplaces like OpenSea. My expertise extends to AI/ML, where I build advanced Generative AI solutions, including RAG (Retrieval-Augmented Generation) pipelines, intelligent chatbots, and AI-driven applications that push the boundaries of innovation.
-
-With a strong problem-solving mindset and a passion for emerging technologies, I strive to create cutting-edge digital solutions that enhance user experiences and drive technological advancement.<br/>Academically, I hold a Diploma in IT from Jomo Kenyatta University of Agriculture and Technology (JKUAT) and am currently pursuing a Bachelor's degree in Computer Science at the University of the People, California. Through these programs, I have gained strong problem-solving skills, software development expertise, and a deep understanding of data structures, algorithms, and AI/ML technologies.
-
-With a passion for innovation and a drive for continuous learning, I am dedicated to creating scalable, intelligent, and future-ready digital solutions. </p>
+                                <p className="mt-4 text-gray-300">
+                                    I am a passionate full-stack developer specializing in modern
+                                    frontend technologies such as HTML, CSS, Bootstrap, Tailwind,
+                                    JavaScript, React, and jQuery. I also build powerful backend
+                                    systems using Python, Node.js, Express, and PostgreSQL / SQL /
+                                    MongoDB.
+                                    <br /><br />
+                                    Beyond traditional development, I work on AI/ML applications
+                                    including Generative AI, RAG pipelines, intelligent chatbots,
+                                    and automation tools. I also have experience building
+                                    blockchain applications including crypto tokens, DeFi platforms,
+                                    and NFT marketplaces.
+                                    <br /><br />
+                                    I hold a Diploma in IT from JKUAT and I’m currently pursuing a
+                                    Bachelor's degree in Computer Science at the University of the
+                                    People, California.
+                                </p>
                             </div>
-                        
-
                         )}
-                        {section=== "experience"&&(
-                            <div className="mt-4 space-y-4">
-                            <div className="p-6 rounded-lg shadow-lg border border-gay-900 text-white
-                                             hover:bg-sky-700 hover:text-white transition-all duration-300 mt-5">
-                                <div>
-                                    <h1 className="text-2xl">Excelerate-Prompt Engineer 2025-present (2months)</h1>
-                                    <p>As a Prompt Engineer at Accelerate, I specialized in designing, optimizing, and fine-tuning prompts to enhance AI model performance. My role involved developing AI-driven applications, refining language model outputs for accuracy and relevance, and integrating AI solutions into real-world use cases. </p>
-                                    
-                                </div>
-                                <div className="flex flex-wrap gap-3 mt-4">
-                            {["Prompt Engineering", "Model fine-tuning", "optimizing AI-generated response"].map((skill, index) => (
-                              <span 
-                                key={index} 
-                                className="bg-blue-500 text-white px-3 py-1 rounded-lg shadow-md hover:bg-blue-400 transition"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                          </div>
-                          <div className="p-6 rounded-lg shadow-lg border border-gay-900 text-white
-                         hover:bg-sky-700 hover:text-white transition-all duration-300 mt-6">
-            <div>
-                <h1 className="text-2xl"> Full Stack Developer Freelancer 2023-present(2years)</h1>
-                <p>As a Prompt Engineer at Accelerate, I specialized in designing, optimizing, and fine-tuning prompts to enhance AI model performance. My role involved developing AI-driven applications, refining language model outputs for accuracy and relevance, and integrating AI solutions into real-world use cases. </p>
-                
-            </div>
-            <div className="flex flex-wrap gap-3 mt-4">
-        {["Prompt Engineering", "Model fine-tuning", "optimizing AI-generated response"].map((skill, index) => (
-          <span 
-            key={index} 
-            className="bg-blue-500 text-white px-3 py-1 rounded-lg shadow-md hover:bg-blue-400 transition"
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-        </div>
-                          </div>
-       
-        )}
-                     
-         {section==="projects"&&(
-          <div className="mt-4 space-y-4">
-          <div className="p-6 rounded-lg shadow-lg border border-gay-900 text-white
-                           hover:bg-sky-700 hover:text-white transition-all duration-300 mt-5">
-              <div>
-                  <h1 className="text-2xl"> Ecommerce store</h1>
-                  <p>My eCommerce store includes essential features like user authentication, product management, and a secure checkout process with multiple payment options. Customers can browse products, add items to their cart or wishlist, and track orders seamlessly. An admin dashboard enables product, user, and order management, along with analytics for business insights. Additional features like reviews, search filters, and notifications enhance user experience, ensuring a smooth and engaging shopping journey. </p>
-                  <div className="flex flex-wrap gap-3 mt-4">
-        {["Javascript", "postgreSQL", "RestAPI"].map((skill, index) => (
-          <span 
-            key={index} 
-            className="bg-blue-300 text-white px-3 py-1 rounded-lg shadow-md hover:bg-blue-500 transition"
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-              </div>
-              </div>
-              <div className="p-6 rounded-lg shadow-lg border border-gay-900 text-white
-                           hover:bg-sky-700 hover:text-white transition-all duration-300 mt-5">
-              <div>
-                  <h1 className="text-2xl">AI PDF CHATBOT</h1>
-                  <p>My AI pdf Chatbot allows users to upload PDFs and interact with them using natural language queries. It extracts text, understands document structure, and provides instant answers based on the content. The chatbot supports multi-page search, highlights relevant sections, and offers summarization for quick insights. With a user-friendly interface and seamless integration, it enhances document accessibility and efficiency </p>
-                  <div className="flex flex-wrap gap-3 mt-4">
-        {["LangChain", "Vector DB", "Open AI"].map((skill, index) => (
-          <span 
-            key={index} 
-            className="bg-blue-300 text-white px-3 py-1 rounded-lg shadow-md hover:bg-blue-500 transition"
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-              </div>
-              </div>
-             
-              </div>
-         )}               
 
-                       
-            
-          
-     
-        
-           
-                    
-      
-</section>
-  ))}
-            {/* Sticky Navbar for Small Screens */}
-            <div className={`fixed top-0 left-0 w-full bg-sky-950 bg-opacity-50 py-3 px-6 shadow-lg md:hidden transition-opacity duration-300 ${sections.includes(activeSection) ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-                <div className="flex justify-center text-white">
-                    <span className="text-lg font-semibold capitalize">{activeSection}</span>
+                        {/* EXPERIENCE SECTION */}
+                        {section === "experience" && (
+                            <div className="mt-4 space-y-6">
+
+                                {/* Prompt Engineer */}
+                                <div className="p-6 rounded-lg shadow-lg border border-gray-900 text-white hover:bg-sky-700 transition-all">
+                                    <h1 className="text-2xl font-semibold">Prompt Engineer — Accelerate (2025 – Present)</h1>
+                                    <p className="mt-2 text-gray-200">
+                                        Designed, optimized, and fine-tuned prompts to enhance AI
+                                        model performance. Built AI-driven applications and improved
+                                        language model accuracy for real-world use cases.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 mt-4">
+                                        {["Prompt Engineering", "Model Fine-Tuning", "AI Optimization"].map((skill, i) => (
+                                            <span key={i} className="bg-blue-500 text-white px-3 py-1 rounded-lg shadow-md">{skill}</span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Freelancer */}
+                                <div className="p-6 rounded-lg shadow-lg border border-gray-900 text-white hover:bg-sky-700 transition-all">
+                                    <h1 className="text-2xl font-semibold">Full-Stack Developer — Freelancer (2023 – Present)</h1>
+                                    <p className="mt-2 text-gray-200">
+                                        Built complete web applications, AI chatbots, automation
+                                        tools, dashboards, and high-performance backend systems.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 mt-4">
+                                        {["React", "Node.js", "Python", "AI/ML", "APIs"].map((skill, i) => (
+                                            <span key={i} className="bg-blue-500 text-white px-3 py-1 rounded-lg shadow-md">{skill}</span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                            </div>
+                        )}
+
+                        {/* PROJECTS SECTION */}
+                        {section === "projects" && (
+                            <div className="mt-4 space-y-6">
+
+                                {/* E-commerce Store */}
+                                <div className="p-6 rounded-lg shadow-lg border border-gray-900 text-white hover:bg-sky-700 transition-all">
+                                    <h1 className="text-2xl font-semibold">E-commerce Platform</h1>
+                                    <p className="mt-2 text-gray-200">
+                                        A full online store with authentication, cart, wishlist,
+                                        checkout, order tracking, admin panel, analytics, and
+                                        payment integration.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 mt-4">
+                                        {["React.js", "Node.js", "Express", "PostgreSQL", "REST API"].map((skill, i) => (
+                                            <span key={i} className="bg-blue-300 px-3 py-1 rounded-lg shadow-md">{skill}</span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* AI PDF Chatbot */}
+                                <div className="p-6 rounded-lg shadow-lg border border-gray-900 text-white hover:bg-sky-700 transition-all">
+                                    <h1 className="text-2xl font-semibold">AI PDF Chatbot</h1>
+                                    <p className="mt-2 text-gray-200">
+                                        ChatPDF-like system allowing PDF upload, extraction,
+                                        embeddings, vector search, and LLM question answering.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 mt-4">
+                                        {["LangChain", "Vector DB", "FastAPI", "OpenAI", "PostgreSQL"].map((skill, i) => (
+                                            <span key={i} className="bg-blue-300 px-3 py-1 rounded-lg shadow-md">{skill}</span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Real Estate Website */}
+                                <div className="p-6 rounded-lg shadow-lg border border-gray-900 text-white hover:bg-sky-700 transition-all">
+                                    <h1 className="text-2xl font-semibold">Real Estate Website</h1>
+                                    <p className="mt-2 text-gray-200">
+                                        Property listing platform with house uploads, booking,
+                                        payments, admin analytics & an AI assistant.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 mt-4">
+                                        {["React.js", "Node.js", "Python", "PostgreSQL", "AI Bot"].map((skill, i) => (
+                                            <span key={i} className="bg-blue-300 px-3 py-1 rounded-lg shadow-md">{skill}</span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Resume Builder SaaS */}
+                                <div className="p-6 rounded-lg shadow-lg border border-gray-900 text-white hover:bg-sky-700 transition-all">
+                                    <h1 className="text-2xl font-semibold">AI Resume Builder SaaS</h1>
+                                    <p className="mt-2 text-gray-200">
+                                        A full SaaS platform with resume builder, cover letter
+                                        generator, resume scoring, templates, dashboards, and
+                                        subscriptions.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 mt-4">
+                                        {["Django", "React.js", "PostgreSQL", "FastAPI", "OpenAI"].map((skill, i) => (
+                                            <span key={i} className="bg-blue-300 px-3 py-1 rounded-lg shadow-md">{skill}</span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* WhatsApp AI Assistant */}
+                                <div className="p-6 rounded-lg shadow-lg border border-gray-900 text-white hover:bg-sky-700 transition-all">
+                                    <h1 className="text-2xl font-semibold">WhatsApp AI Assistant</h1>
+                                    <p className="mt-2 text-gray-200">
+                                        A smart WhatsApp bot integrated with LLMs to automate
+                                        responses, workflows, scheduling, and business support.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 mt-4">
+                                        {["Node.js", "Twilio API", "OpenAI", "Automation"].map((skill, i) => (
+                                            <span key={i} className="bg-blue-300 px-3 py-1 rounded-lg shadow-md">{skill}</span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                            </div>
+                        )}
+
+                    </section>
+                ))}
+
+                {/* Sticky Navbar for Small Screens */}
+                <div className={`fixed top-0 left-0 w-full bg-sky-950 bg-opacity-50 py-3 px-6 shadow-lg md:hidden transition-opacity duration-300 ${sections.includes(activeSection) ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+                    <div className="flex justify-center text-white">
+                        <span className="text-lg font-semibold capitalize">{activeSection}</span>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     );
 }
