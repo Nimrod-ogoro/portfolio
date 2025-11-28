@@ -1,7 +1,6 @@
 import React from "react";
-import { FaReact, FaNodeJs, FaPython, FaGithub } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaPython, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { SiTailwindcss, SiDjango, SiPostgresql, SiExpress, SiMongodb, SiOpenai, SiStripe, SiTwilio, SiHtml5, SiCss3, SiJavascript, SiFastapi } from "react-icons/si";
-import { FaExternalLinkAlt } from "react-icons/fa";
 
 const techIcons = {
   "React.js": <FaReact className="text-blue-400" />,
@@ -22,19 +21,14 @@ const techIcons = {
   "Automation": <FaExternalLinkAlt className="text-white" />, // placeholder
 };
 
-export default function ProjectPage({
-  title,
-  description,
-  media = [],
-  skills = [],
-  links = [],
-}) {
+export default function ProjectPage({ title, description, media = [], skills = [], links = [] }) {
   return (
     <div className="w-full min-h-screen bg-sky-950 text-white p-6 md:p-12 flex flex-col gap-10">
-      {/* Title */}
+      
+      {/* Project Title */}
       <h1 className="text-4xl md:text-5xl font-bold tracking-tight">{title}</h1>
 
-      {/* Description */}
+      {/* Project Description */}
       <p className="mt-4 text-gray-300 text-base md:text-lg leading-relaxed">
         {description}
       </p>
@@ -44,17 +38,18 @@ export default function ProjectPage({
         {media.map((item, index) => (
           <div
             key={index}
-            className="rounded-lg overflow-hidden shadow-lg border border-gray-900 hover:scale-105 transform transition-all duration-300"
+            className="rounded-lg overflow-hidden shadow-lg border border-gray-900 hover:scale-105 transform transition-all duration-300 flex justify-center items-center bg-gray-900"
+            style={{ maxHeight: "500px" }} // max height, preserves quality
           >
             {item.type === "image" && (
               <img
                 src={item.src}
                 alt={item.alt}
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-contain"
               />
             )}
             {item.type === "video" && (
-              <video controls className="w-full h-auto object-cover">
+              <video controls className="w-full h-full object-contain">
                 <source src={item.src} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -63,7 +58,7 @@ export default function ProjectPage({
         ))}
       </div>
 
-      {/* Skills / Technologies */}
+      {/* Technologies / Skills */}
       <div className="mt-6">
         <h2 className="text-2xl font-semibold mb-4">Technologies & Skills Used</h2>
         <div className="flex flex-wrap gap-3">
