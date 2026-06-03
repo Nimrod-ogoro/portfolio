@@ -1,4 +1,4 @@
-import ProjectPage from './ProjectPage';
+import ProjectPage from "./projectPage";
 
 export default function LamakiConstruction() {
     return (
