@@ -21,7 +21,7 @@ const techIcons = {
   "Automation": <FaExternalLinkAlt className="text-white" />, // placeholder
 };
 
-export default function ProjectPage({ title, description, media = [], skills = [], links = [] }) {
+export default function projectPage({ title, description, media = [], skills = [], links = [] }) {
   return (
     <div className="w-full min-h-screen bg-sky-950 text-white p-6 md:p-12 flex flex-col gap-10">
       
